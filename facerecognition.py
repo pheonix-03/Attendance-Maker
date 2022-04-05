@@ -1,13 +1,10 @@
 import cv2
 import face_recognition
 import os
-import numpy as np
 from datetime import datetime
-import pickle
 import pandas as pd
 import numpy as np
 from csv import writer
-from datetime import datetime
 
 path = 'Data'
 now = datetime.now()
