@@ -6,12 +6,15 @@ import pandas as pd
 import numpy as np
 from csv import writer
 
-path = 'Data'
+#path = '/home/pheonix/Desktop/Project_FSP/Data'
+
+path = os.path.join(os.path.curdir, 'Data')
 now = datetime.now()
 
 images = []
 classNames = []
 mylist = os.listdir(path)
+#print(mylist)
 for cl in mylist:
     curImg = cv2.imread(f'{path}/{cl}')
     images.append(curImg)
@@ -26,8 +29,8 @@ def findEncodings(images):
 encoded_face_train = findEncodings(images)
 
 def markAttendance(name):
-    dataset = pd.read_csv('Attendance.csv')
-    dataset2 = pd.read_csv('rollrec.csv')
+    dataset = pd.read_csv(os.path.join(os.path.curdir, 'Attendance.csv'))
+    dataset2 = pd.read_csv(os.path.join(os.path.curdir, 'rollrec.csv'))
     roll_no=0
     for i in range(len(dataset2)):
         if dataset2['Name'][i]==name:
